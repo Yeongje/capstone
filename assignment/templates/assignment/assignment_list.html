@@ -1,0 +1,71 @@
+{% extends "assignment/layout.html" %}
+
+{% load bootstrap3 staticfiles %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{% block content %}
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Capstone assignment</h1>
+            <p>IDB398 & 399 Web</p>
+            <p>
+                <a class="btn btn-lg btn-primary" href="https://qutvirtual4.qut.edu.au">
+                        QUT VIRTUAL &raquo;
+                    </a>
+                <a class="btn btn-lg btn-primary" href="https://blackboard.qut.edu.au">
+                        QUT Blackboard &raquo;
+                        </a>
+            </p>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+              <!---
+                <div class="alert alert-info">
+                    <ul>
+                    <li>http://localhost:8000/assignment/ 주소로 접속해보세요.</li>
+                    <li>템플릿 경로를 blog/templates/post_list.html 경로가 아닌
+                    blog/ templates/blog/post_list.html 경로를 쓰는 지에 대한 이유는,
+                    후에 Template Loader에서 설명합니다.</li>
+                    </ul>
+                </div>
+                --->
+                <a href="{% url "assignment:assignment_new" %}" class = "btn btn-primary pull-right">New Assignment</a>
+
+                <p>
+                    <form action="" method="get">
+                        <input type="text" name="q" value="{{ q }}" />
+                        <input type="submit" value="Search" class="btn btn-primary" />
+                    </form>
+                </p>
+                <table class="table table-hover table-bordered">
+                    <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>title</th>
+                            <th>author</th>
+                            <th>updated_at</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for assignment in assignment_list %}
+                            <tr>
+                                <td>{{ assignment.id }}</td>
+                                <td><a href="{% url "assignment:assignment_detail" assignment.id %}">{{ assignment.title }}</a></td>
+                                <td><small>by {{ assignment.user }}</small></td>
+                                <td><small>at {{ assignment.updated_at }}</small></td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <div class="text-center">
+                    {% bootstrap_pagination page_obj %}
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+{% endblock %}

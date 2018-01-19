@@ -1,0 +1,39 @@
+{% extends "assignment/layout.html" %}
+
+
+{%block title%}
+  {{assignment.title}}
+
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+
+        <h2>{{assignment.title}}</h2> {{assignment.content|linebreaks}}
+
+        <hr/>
+        <h3>COMMENTS</h3>
+        <ul>
+          {% for comment in assignment.comment_set.all %}
+          <li>
+            {{comment.message}}
+            <small>{{comment.author}}</small>
+            <small>at {{ comment.updated_at }}</small>
+          </li>
+          {%endfor%}
+        </ul>
+
+          <hr/>
+          <a href="{% url "assignment:assignment_list" %}" class ="btn btn-primary">List</a>
+          <a href="{% url "assignment:assignment_edit" assignment.id %}" class ="btn btn-default">Edit</a>
+          <a href="{% url "assignment:assignment_delete" assignment.id %}" class ="btn btn-default">Delete</a>
+      </div>
+
+    </div>
+
+  </div>
+
+
+{% endblock %}

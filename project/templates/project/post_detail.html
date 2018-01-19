@@ -1,0 +1,39 @@
+{% extends "project/layout.html" %}
+
+
+{%block title%}
+  {{post.title}}
+
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+
+        <h2>{{post.title}}</h2> {{post.content|linebreaks}}
+
+        <hr/>
+        <h3>COMMENTS</h3>
+        <ul>
+          {% for comment in post.comment_set.all %}
+          <li>
+            {{comment.message}}
+            <small>{{comment.author}}</small>
+            <small>at {{ comment.updated_at }}</small>
+          </li>
+          {%endfor%}
+        </ul>
+
+          <hr/>
+          <a href="{% url "project:post_list" %}" class ="btn btn-primary">List</a>
+          <a href="{% url "project:post_edit" post.id %}" class ="btn btn-default">Edit</a>
+          <a href="{% url "project:post_delete" post.id %}" class ="btn btn-default">Delete</a>
+      </div>
+
+    </div>
+
+  </div>
+
+
+{% endblock %}
