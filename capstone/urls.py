@@ -20,13 +20,17 @@ from django.conf import settings
 from django.shortcuts import redirect
 from django.views.generic import RedirectView
 
+
 def root(request):
-    return redirect('project:post_list')
+    return redirect('ifb:first_page')
+
+
 
 urlpatterns = [
     url('admin/', admin.site.urls),
     url(r'^$', root, name='root'),
 
+    url(r'^IFB/', include('ifb.urls', namespace='ifb')),
     url(r'^project/', include('project.urls', namespace='project')),
     url(r'^assignment/', include('assignment.urls', namespace='assignment')),
     url(r'^accounts/', include('accounts.urls')),

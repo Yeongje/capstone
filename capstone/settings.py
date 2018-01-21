@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'project',
     'assignment',
     'accounts',
+    'ifb',
 ]
 
 MIDDLEWARE = [
