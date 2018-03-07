@@ -4,7 +4,7 @@ from .models import Profile
 
 
 class SignupForm(UserCreationForm):
-    
+
     student_number = forms.CharField()
 
     class Meta(UserCreationForm.Meta):
@@ -14,8 +14,7 @@ class SignupForm(UserCreationForm):
         user = super().save()
         profile = Profile.objects.create(
             user = user,
-            student_number= self.cleaned_data['student_number'],
-            )
+            student_number= self.cleaned_data['student_number'])
         return user
 
 class LoginForm(AuthenticationForm):

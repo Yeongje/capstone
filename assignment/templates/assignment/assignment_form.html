@@ -17,7 +17,7 @@
 -->
 <link rel="stylesheet"      href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" /> <script src="//code.jquery.com/jquery-2.2.4.min.js"></script>
 
-<form action="" method="post" class="form-horizontal">
+<form action="" method="post" class="form-horizontal" enctype="multipart/form-data">
   <legend>Post Form</legend>
     {% csrf_token %}
     {% for error in form.non_field_errors %}

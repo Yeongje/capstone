@@ -25,7 +25,7 @@ SECRET_KEY = ')7-vgl9z^3fl1=_h9z7&to5d-tto6v903%4caztl@or!h7zi*a'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -128,5 +128,13 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 INTERNAL_IPS = ["127.0.0.1"]
+
+STATICFILES_DIRS = [
+ os.path.join(BASE_DIR, 'capstone', 'static'),
+]
+STATIC_ROOT =os.path.join(BASE_DIR,'staticfiles')
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
 AUTH_USER_MODEL = 'auth.User'

@@ -11,7 +11,14 @@
     <div class="row">
         <div class="col-sm-12">
 
-        <h2>{{assignment.title}}</h2> {{assignment.content|linebreaks}}
+        <h2>{{assignment.title}}</h2>
+        {{assignment.content|linebreaks}}
+
+        {% if assignment.document %}
+        <li>
+        <a href="{{ assignment.document.url }}">{{ assignment.document.name }}</a>
+        </li>
+        {% endif %}
 
         <hr/>
         <h3>COMMENTS</h3>

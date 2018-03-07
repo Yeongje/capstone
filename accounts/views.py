@@ -2,6 +2,8 @@ from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
 from .forms import SignupForm
+from .models import Profile
+from django.contrib.auth.models import User
 
 
 def signup(request):
@@ -20,3 +22,8 @@ def signup(request):
 @login_required
 def profile(request):
     return render(request, 'accounts/profile.html')
+
+def students(request):
+    profiles =  Profile.objects.all()
+    context = {'profiles':profiles}
+    return render(request, 'teams/students.html', context)

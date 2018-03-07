@@ -19,6 +19,7 @@ class Assignment(models.Model):
     user =models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.PROTECT,help_text='only admin')
     title = models.CharField(max_length=100, verbose_name = 'Title', help_text ='Write the title name within 100 words')
     content = models.TextField(verbose_name ='Content')
+    document = models.FileField(blank = True, upload_to='project/documents/%Y/%m')
     status = models.CharField(max_length=1, choices=STATUS_CHOICES)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

@@ -15,3 +15,5 @@ class PostForm(forms.ModelForm):
 class PostCreateView(CreateView):
     model = Post
     form_class = PostForm
+
+# post_detail = DetailView.as_view(model=Post, pk_url_kwarg='id')
