@@ -11,14 +11,14 @@
         <div class="col-sm-12">
 
         <h2>{{post.title}}</h2>
-
         {{post.content|linebreaks}}
+        
         {% if post.document %}
         <li>
         <a href="{{ post.document.url }}">{{ post.document.name }}</a>
         </li>
         {% endif %}
-        
+
         <hr/>
         <h3>COMMENTS</h3>
         <ul>

@@ -33,6 +33,7 @@ urlpatterns = [
     url(r'^IFB/', include('ifb.urls', namespace='ifb')),
     url(r'^project/', include('project.urls', namespace='project')),
     url(r'^assignment/', include('assignment.urls', namespace='assignment')),
+    url(r'^reflection/', include('reflection.urls', namespace='reflection')),
     url(r'^accounts/', include('accounts.urls')),
 ]
 

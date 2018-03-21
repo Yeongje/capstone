@@ -1,0 +1,86 @@
+{% extends "reflection/layout.html" %}
+
+{% block content %}
+  <div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+          <style>
+            table, th, td {
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+            th, td {
+                padding: 5px;
+                text-align: left;
+            }
+          </style>
+        <ul>
+          <table style="width:100%">
+            <tr>
+              <th>Team Number</th>
+              <td>{{reflection.team_number}}</td>
+            </tr>
+            <tr>
+              <th>Week</th>
+              <td>{{reflection.week}}</td>
+            </tr>
+            <tr>
+              <th>Student Name</th>
+              <td>{{reflection.student_name}}</td>
+            </tr>
+
+            <tr>
+              <th>Grade </th>
+              <td>{{reflection.grade}}</td>
+            </tr>
+            <tr>
+              <th>Reflect on how you delivered on your three main tasks for the last :</th>
+              <td>{{reflection.self_reflection}}</td>
+            </tr>
+          </table>
+
+          <h2>Team Number : {{reflection.team_number}} , Week   {{reflection.week}}</h2>
+            <hr>
+            <h3>Self Reflection</h3>
+            <h4>Student Name : {{reflection.student_name}}</h4>
+            <h4>Grade : {{reflection.grade}}</h4>
+            <h4>Reflect on how you delivered on your three main tasks for the last : </h4>
+            <h4>{{reflection.self_reflection}}</h4>
+            <h4>Detail your three main tasks for the next fortnight:</h4>
+            <h4>{{reflection.self_plan}}</h4>
+            <hr/>
+
+            <h3>Team Reflection</h3>
+            <h4>Student Name : {{reflection.team1_name}}</h4>
+            <h4>Grade : {{reflection.team1_grade}}</h4>
+            <h4>Evaluation of contribution and performance :</h4>
+            <h4>{{reflection.team1_reflection}}</h4>
+
+            <br><br>
+
+            <h4>Student Name : {{reflection.team2_name}}</h4>
+            <h4>Grade : {{reflection.team2_grade}}</h4>
+            <h4>Evaluation of contribution and performance :</h4>
+            <h4>{{reflection.team2_reflection}}</h4>
+
+            <br><br>
+
+            <h4>Student Name : {{reflection.team3_name}}</h4>
+            <h4>Grade : {{reflection.team3_grade}}</h4>
+            <h4>Evaluation of contribution and performance :</h4>
+            <h4>{{reflection.team3_reflection}}</h4>
+
+        </ul>
+
+          <hr/>
+          <a href="{% url "reflection:reflection_list" %}" class ="btn btn-primary">List</a>
+          <a href="{% url "reflection:reflection_edit" reflection.id %}" class ="btn btn-default">Edit</a>
+          <a href="{% url "reflection:reflection_delete" reflection.id %}" class ="btn btn-default">Delete</a>
+      </div>
+
+    </div>
+
+  </div>
+
+
+{% endblock %}

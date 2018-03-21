@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'assignment',
     'accounts',
     'ifb',
+    'reflection',
 ]
 
 MIDDLEWARE = [
