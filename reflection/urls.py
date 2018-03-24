@@ -4,7 +4,7 @@ from . import views_cbv
 
 app_name = 'reflection'
 urlpatterns = [
-     url(r'^$', views_cbv.reflection_list, name = 'reflection_list'),
+     url(r'^$', views.reflection_list, name = 'reflection_list'),
      url(r'^(?P<id>\d+)/$', views.reflection_detail, name = 'reflection_detail'),
      url(r'^new/$', views.reflection_new, name ='reflection_new'),
      url(r'^(?P<id>\d+)/edit/$', views.reflection_edit, name = 'reflection_edit'),

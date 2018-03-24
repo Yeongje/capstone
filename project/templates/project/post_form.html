@@ -1,22 +1,18 @@
+{% load bootstrap3 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
 
-
-{% extends "project/layout.html" %} {% block content %}
-<table>
-  <div class="continer">
-    <div class="row">
-      <div class="col-sm-12">
-
-        <form class="" action="" method="post" enctype="multipart/form-data">
-          {% csrf_token %}
-          <table class="table table-hover table-bordered">
-            {{form.as_table}}
-          </table>
-          <input type="submit" class="btn btn-primary" name="" value="Submit">
-        </form>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-5 col-sm-6 col-lg-4 " >
+      <legend>Post Form</legend>
+      <form class="" action="" method="post">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <input type="submit" class="btn btn-primary" name="" value="Submit">
+      </form>
       </div>
 
     </div>
 
   </div>
-
-  {% endblock %}

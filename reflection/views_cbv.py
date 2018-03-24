@@ -2,8 +2,18 @@ from django.views.generic import CreateView,ListView,DetailView,UpdateView, Dele
 from .models import Reflection
 from django import forms
 from django.urls import reverse_lazy
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 
-reflection_list = ListView.as_view(model=Reflection,paginate_by=10)
+class ReflectionListView(ListView):
+    model = Reflection
+    queryset = Reflection.objects.all().prefetch_related()
+    paginate_by=10
+
+reflection_list = ReflectionListView.as_view()
+
+
+#reflection_list = ListView.as_view(model=Reflection,paginate_by=10)
 
 reflection_delete = DeleteView.as_view(model = Reflection, success_url=reverse_lazy('reflection:reflection_list'))
 

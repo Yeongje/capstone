@@ -5,9 +5,17 @@ from django.shortcuts import get_object_or_404
 from .forms import ReflectionForm
 from django.contrib import messages
 from django.views.generic import CreateView,ListView,DetailView,UpdateView, DeleteView
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
-#Post view Line and Number
+def reflection_list(request):
+    qs = Reflection.objects.all() # 교수들이 어드민에 올린거 이런식으로 받아오기
+    q = request.GET.get('q','')
+    if q:
+        qs=qs.filter(team_number__icontains=q)
+
+    return render(request, 'reflection/reflection_list.html', {'reflection_list':qs, 'q':q, })
+
 def reflection_detail(request,id):
 #    post=Post.objects.get(id=id)
     reflection = get_object_or_404(Reflection, id=id)

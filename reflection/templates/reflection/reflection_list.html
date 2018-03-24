@@ -21,29 +21,23 @@
 
         <div class="row">
             <div class="col-sm-12">
-              <!---
-                <div class="alert alert-info">
-                    <ul>
-                    <li>http://localhost:8000/project/ 주소로 접속해보세요.</li>
-                    <li>템플릿 경로를 blog/templates/post_list.html 경로가 아닌
-                    blog/ templates/blog/post_list.html 경로를 쓰는 지에 대한 이유는,
-                    후에 Template Loader에서 설명합니다.</li>
-                    </ul>
-                </div>
-                --->
+
                 <a href="{% url "reflection:reflection_new" %}" class = "btn btn-primary pull-right">New Reflection</a>
 
                 <p>
-                    <form action="" method="get">
-                        <input type="text" name="q" value="{{ q }}" />
-                        <input type="submit" value="Search" class="btn btn-primary" />
-                    </form>
+                  <form action="" method="get">
+                    TEAM
+                      <input type="number" name="q" value="{{ q }}" />
+                      <input type="submit" value="Search" class="btn btn-primary" />
+                  </form>
                 </p>
 
+                {% if user.is_authenticated %}
                 <table class="table table-hover table-bordered">
                     <thead>
                         <tr>
                             <th>team number</th>
+                            <th>title</th>
                             <th>week</th>
                             <th>author</th>
                             <th>updated</th>
@@ -51,18 +45,20 @@
                     </thead>
                     <tbody>
                         {% for reflection in reflection_list %}
-                            <tr>
-                                <td>{{ reflection.team_number }}</td>
-                                <td><a href="{% url "reflection:reflection_detail" reflection.id %}">{{ reflection.week }}</a></td>
-                                <td><small>by {{ reflection.student_name }}</small></td>
-                                <td><small>at {{ reflection.updated_at }}</small></td>
-                            </tr>
+
+                              <tr>
+                                  <td>{{ reflection.team_number }}</td>
+                                  <td><a href="{% url "reflection:reflection_detail" reflection.id %}">{{ reflection.title }}</a></td>
+                                  <td>{{reflection.week}}</td>
+                                  <td><small>by {{ reflection.student_name }}</small></td>
+                                  <td><small>at {{ reflection.updated_at }}</small></td>
+                              </tr>
+
                         {% endfor %}
                     </tbody>
                 </table>
-                  <div class="text-center">
-                      {% bootstrap_pagination page_obj %}
-                  </div>
+                {% endif %}
+
             </div>
         </div>
 

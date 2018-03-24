@@ -12,11 +12,12 @@ STATUS_CHOICES = (
      ('d', 'Draft'),
      ('p', 'Published'),)
 
+
 class Reflection(models.Model):
     #author = models.CharField(max_length=20)
+    title = models.CharField(max_length=100, verbose_name = 'title')
     team_number  = models.IntegerField(blank=True, null=True)
     week = models.IntegerField(blank=True, null=True)
-
     student_name = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.PROTECT)
     #student_name = models.OneToOneField(User, on_delete=models.CASCADE)
     grade = models.PositiveIntegerField(default=1, validators=[MinValueValidator(1), MaxValueValidator(7)], help_text ='Grade between 1 and 7')
@@ -42,6 +43,7 @@ class Reflection(models.Model):
 
     class Meta:
         ordering = ['-id']
+        ordering = ['team_number']
 
     def __str__(self):
         return self.title
