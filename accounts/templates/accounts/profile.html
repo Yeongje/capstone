@@ -1,11 +1,45 @@
-{% extends "accounts/layout.html"%}
+{% extends "accounts/layout.html"%} {% block content %}
+<style>
+  table {
+    width: 100%;
+  }
 
-{% block content %}
+  th,
+  td {
+    height: 50px;
+    text-align: left;
+    font-size: 25px;
+    color: black;
+    background-color:#ffffff;
+  }
+</style>
+
+<ul>
   <h2>{{user}}'s Profile</h2>
-  <ul>
-    <li>{{user.username}}</li>
-    <li>{{user.email}}</li>
-    <li>{{user.date_joined}}</li>
-    
-  </ul>
+  <br><br>
+
+  <table style="width:50%" class="table table-striped">
+    {% for profile in profile %}
+
+    <tr>
+      <th>Name</th>
+      <td>{{user.username}}</td>
+    </tr>
+    <tr>
+      <th>Student Number</th>
+      <td>{{profile.student_number}}</td>
+    </tr>
+    <tr>
+      <th>Student Email</th>
+      <td>{{user.email}}</td>
+    </tr>
+    <tr>
+      <th>Team Number</th>
+      <td>{{team.team_number}}</td>
+    </tr>
+
+    {% endfor %}
+  </table>
+
+</ul>
 {%endblock%}

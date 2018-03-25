@@ -21,7 +21,12 @@ def signup(request):
 
 @login_required
 def profile(request):
-    return render(request, 'accounts/profile.html')
+    profiles =  Profile.objects.all()
+    users = User.objects.get(username=request.user.username) # request User name
+    if users:
+        profiles=profiles.filter(user=users)
+
+    return render(request, 'accounts/profile.html',{'profile':profiles,'users':users,})
 
 def students(request):
     profiles =  Profile.objects.all()
