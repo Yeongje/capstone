@@ -1,4 +1,5 @@
 {% load bootstrap3 %} {% bootstrap_css %} {% bootstrap_javascript %}
+{% load socialaccount %}
 
 
 <div class="container">
@@ -15,6 +16,22 @@
         <input type="submit" class="btn btn-primary" name="" value="Submit">
         <a href="{% url "signup" %}"><input type="button" class="btn btn-primary" value="SignUp"></a>
       </form>
+
+      <h3>Social Login</h3>
+
+      <ul>
+        {% for provider in providers %}
+          <li>
+            {% if provider.social_app %}
+            <a href="{% provider_login_url provider.id %}">
+                    {{ provider.name }}</a>
+            {% else %}
+            <a>
+                  Provider {{ provider.name }} Setup
+                </a> {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
 
 
     </div>

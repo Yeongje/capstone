@@ -35,7 +35,11 @@ urlpatterns = [
     url(r'^assignment/', include('assignment.urls', namespace='assignment')),
     url(r'^reflection/', include('reflection.urls', namespace='reflection')),
     url(r'^accounts/', include('accounts.urls')),
+    url(r'^accounts/', include('allauth.urls')),
+    #url('', include('social_django.urls', namespace='social')),
 ]
+
+
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
