@@ -53,6 +53,10 @@ INSTALLED_APPS = [
     'accounts',
     'ifb',
     'reflection',
+
+    #IFB399
+    'assignment399',
+    'reflection399',
 ]
 
 MIDDLEWARE = [
@@ -80,11 +84,12 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-
             ],
         },
     },
 ]
+
+WSGI_APPLICATION = 'capstone.wsgi.application'
 
 #socail login
 AUTHENTICATION_BACKENDS = [
@@ -98,7 +103,7 @@ SOCIALACCOUNT_EMAIL_VERIFICATION = 'none'
 
 LOGIN_REDIRECT_URL='/'
 
-WSGI_APPLICATION = 'capstone.wsgi.application'
+
 
 
 # Database

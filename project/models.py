@@ -14,6 +14,13 @@ STATUS_CHOICES = (
      ('p', 'Published'),
      ('w', 'Withdrawn'), )
 
+INDUSTRY_CHOICES = (
+     ('Web Application', 'Web Application'),
+     ('Mobile Application', 'Mobile Application'),
+     ('Software', 'Software'),
+     ('Hardware', 'Hardware'),
+     ('Data', 'Data'), )
+
 class Post(models.Model):
     #author = models.CharField(max_length=20)
     user =models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.PROTECT)
@@ -21,12 +28,13 @@ class Post(models.Model):
     content = models.TextField(verbose_name ='Content')
     document = models.FileField(blank = True, upload_to='project/documents/%Y/%m')
     status = models.CharField(max_length=1, choices=STATUS_CHOICES)
+    category = models.CharField(max_length=20, choices=INDUSTRY_CHOICES)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
         ordering = ['-id']
-         
+
 
     def __str__(self):
         return self.title

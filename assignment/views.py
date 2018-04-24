@@ -26,6 +26,7 @@ def assignment_new(request):
         form = AssignmentForm(request.POST,request.FILES)
         if form.is_valid():
             assignment=form.save()
+            messages.success(request,'New post was saved')
             return redirect(assignment) #post.get_absoluteurl() => post detail view 고쳐야함;; 모르겠다
     else:
         form=AssignmentForm()

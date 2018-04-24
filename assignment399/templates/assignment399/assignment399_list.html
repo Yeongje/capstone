@@ -1,0 +1,71 @@
+{% extends "assignment399/layout399.html" %}
+
+{% load bootstrap3 staticfiles %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{% block content %}
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Capstone Assignment</h1>
+            <p>QUT - IFB399</p>
+            <p>
+                <a class="btn btn-lg btn-primary" href="/assignment399/">
+                        Assignment &raquo;
+                        </a>
+                <a class="btn btn-lg btn-primary" href="/reflection399/">
+                                Reflection &raquo;
+                                </a>
+            </p>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+              <!---
+                <div class="alert alert-info">
+                    <ul>
+                    <li>http://localhost:8000/assignment/ 주소로 접속해보세요.</li>
+                    <li>템플릿 경로를 blog/templates/post_list.html 경로가 아닌
+                    blog/ templates/blog/post_list.html 경로를 쓰는 지에 대한 이유는,
+                    후에 Template Loader에서 설명합니다.</li>
+                    </ul>
+                </div>
+                --->
+                <a href="{% url "assignment399:assignment399_new" %}" class = "btn btn-primary pull-right">New Assignment</a>
+
+                <p>
+                    <form action="" method="get">
+                        <input type="text" name="q" value="{{ q }}" />
+                        <input type="submit" value="Search" class="btn btn-primary" />
+                    </form>
+                </p>
+                <table class="table table-hover table-bordered">
+                    <thead>
+                        <tr>
+
+                            <th>title</th>
+                            <th>name</th>
+                            <th>updated_at</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for assignment399 in assignment399_list %}
+                            <tr>
+                              
+                                <td><a href="{% url "assignment399:assignment399_detail" assignment399.id %}">{{ assignment399.title }}</a></td>
+                                <td><small>by {{ assignment399.user }}</small></td>
+                                <td><small>at {{ assignment399.updated_at }}</small></td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <div class="text-center">
+                    {% bootstrap_pagination page_obj %}
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+{% endblock %}

@@ -6,6 +6,8 @@ from .models import Profile
 class SignupForm(UserCreationForm):
 
     student_number = forms.CharField()
+    major = forms.CharField()
+    gpa = forms.CharField()
 
     class Meta(UserCreationForm.Meta):
         fields = UserCreationForm.Meta.fields + ('email',)
@@ -14,7 +16,9 @@ class SignupForm(UserCreationForm):
         user = super().save()
         profile = Profile.objects.create(
             user = user,
-            student_number= self.cleaned_data['student_number'])
+            student_number= self.cleaned_data['student_number'],
+            major= self.cleaned_data['major'],
+            gpa= self.cleaned_data['gpa'])
         return user
 
 #class LoginForm(AuthenticationForm):

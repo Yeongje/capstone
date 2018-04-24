@@ -49,8 +49,3 @@ def profile(request):
         profiles=profiles.filter(user=users)
 
     return render(request, 'accounts/profile.html',{'profile':profiles,'users':users,})
-
-def students(request):
-    profiles =  Profile.objects.all()
-    context = {'profiles':profiles}
-    return render(request, 'teams/students.html', context)

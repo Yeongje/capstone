@@ -1,0 +1,54 @@
+{% extends "reflection399/layout399.html" %}
+
+{% block content %}
+  <div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+
+        <ul>
+
+          <h2>Team Number : {{reflection399.team_number}} , Week   {{reflection399.week}}</h2>
+            <hr>
+            <h3>Self Reflection</h3>
+            <h4>Student Name : {{reflection399.student_name}}</h4>
+            <h4>Grade : {{reflection399.grade}}</h4>
+            <h4>Reflect on how you delivered on your three main tasks for the last : </h4>
+            <h4>{{reflection399.self_reflection399}}</h4>
+            <h4>Detail your three main tasks for the next fortnight:</h4>
+            <h4>{{reflection399.self_plan}}</h4>
+            <hr/>
+
+            <h3>Team Reflection</h3>
+            <h4>Student Name : {{reflection399.team1_name}}</h4>
+            <h4>Grade : {{reflection399.team1_grade}}</h4>
+            <h4>Evaluation of contribution and performance :</h4>
+            <h4>{{reflection399.team1_reflection}}</h4>
+
+            <br><br>
+
+            <h4>Student Name : {{reflection399.team2_name}}</h4>
+            <h4>Grade : {{reflection399.team2_grade}}</h4>
+            <h4>Evaluation of contribution and performance :</h4>
+            <h4>{{reflection399.team2_reflection}}</h4>
+
+            <br><br>
+
+            <h4>Student Name : {{reflection399.team3_name}}</h4>
+            <h4>Grade : {{reflection399.team3_grade}}</h4>
+            <h4>Evaluation of contribution and performance :</h4>
+            <h4>{{reflection399.team3_reflection}}</h4>
+
+        </ul>
+
+          <hr/>
+          <a href="{% url "reflection399:reflection399_list" %}" class ="btn btn-primary">List</a>
+          <a href="{% url "reflection399:reflection399_edit" reflection399.id %}" class ="btn btn-default">Edit</a>
+          <a href="{% url "reflection399:reflection399_delete" reflection399.id %}" class ="btn btn-default">Delete</a>
+      </div>
+
+    </div>
+
+  </div>
+
+
+{% endblock %}

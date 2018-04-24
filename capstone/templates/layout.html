@@ -43,7 +43,7 @@
                   <li><a href="/project/">Project</a></li>
                   <li><a href="/assignment/">Assignment</a></li>
                   <li><a href="/reflection/">Reflection</a></li>
-                  <li><a href="#">Team</a></li>
+                  <li><a href="{% url "students" %}">Team</a></li>
               </ul>
               <ul class="nav navbar-nav navbar-right">
                   {% if not user.is_authenticated %}
@@ -57,18 +57,6 @@
             </div>
         </div>
     </nav>
-
-
-      {% if messages %}
-      <div class="container">
-      {% for message in messages %}
-          <div {% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>
-
-            {{message.message }}
-          </div>
-      {%endfor%}
-      </div>
-    {%endif%}
 
 
     {% block content %}

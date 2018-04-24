@@ -1,4 +1,4 @@
-{% extends "accounts/layout.html"%}
+{% extends "teams/layout.html"%}
 
 
 {% block content %}
@@ -11,6 +11,7 @@
       <tr>
           <td><B>Team number</B></td>
           <td><B>Name</B></td>
+          <td><B>Student Number</B></td>
           <td><B>Email</B></td>
           <td><B>Major</B></td>
           <td><B>GPA</B></td>
@@ -20,10 +21,13 @@
       <tbody>
       {% for profile in profiles %}
       <tr>
+          <td><a href="teams/{{profile.team_number}}/">{{profile.team_number}}</a>
+          </td>
           <td>{{profile.user}}</td>
           <td>{{profile.student_number}}</td>
           <td>{{user.email}}</td>
-          <td>{{profile.team}}</td>
+          <td>{{profile.major}}</td>
+          <td>{{profile.gpa}}</td>
       </tr>
       {% endfor %}
       <tbody>
@@ -32,11 +36,11 @@
 </div>
 
 <!-- The second value will be selected initially -->
-<select name="text"> <!--Supplement an id here instead of using 'text'-->
+<!--<select name="text"> Supplement an id here instead of using 'text'
   <option value="value1">Value 1</option>
   <option value="value2" selected>Value 2</option>
   <option value="value3">Value 3</option>
 </select>
-
+-->
 
 {%endblock%}

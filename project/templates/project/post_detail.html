@@ -12,24 +12,12 @@
 
         <h2>{{post.title}}</h2>
         {{post.content|linebreaks}}
-        
-        {% if post.document %}
-        <li>
-        <a href="{{ post.document.url }}">{{ post.document.name }}</a>
-        </li>
-        {% endif %}
 
         <hr/>
-        <h3>COMMENTS</h3>
-        <ul>
-          {% for comment in post.comment_set.all %}
-          <li>
-            {{comment.message}}
-            <small>{{comment.author}}</small>
-            <small>at {{ comment.updated_at }}</small>
-          </li>
-          {%endfor%}
-        </ul>
+        <h3>File</h3>
+        {% if post.document %}
+        <a href="{{ post.document.url }}" class ="btn btn-default">download</a>
+        {% endif %}
 
           <hr/>
           <a href="{% url "project:post_list" %}" class ="btn btn-primary">List</a>

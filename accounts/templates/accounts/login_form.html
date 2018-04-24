@@ -19,19 +19,17 @@
 
       <h3>Social Login</h3>
 
-      <ul>
+
         {% for provider in providers %}
-          <li>
             {% if provider.social_app %}
-            <a href="{% provider_login_url provider.id %}">
-                    {{ provider.name }}</a>
+            <a href="{% provider_login_url provider.id %}"><input type="submit" class="btn btn-primary" name="" value="{{ provider.name }}">
+            </a>
             {% else %}
             <a>
                   Provider {{ provider.name }} Setup
                 </a> {% endif %}
-          </li>
         {% endfor %}
-      </ul>
+
 
 
     </div>

@@ -29,14 +29,20 @@ def root(request):
 urlpatterns = [
     url('admin/', admin.site.urls),
     url(r'^$', root, name='root'),
-
     url(r'^IFB/', include('ifb.urls', namespace='ifb')),
+
+    #IFB398
     url(r'^project/', include('project.urls', namespace='project')),
     url(r'^assignment/', include('assignment.urls', namespace='assignment')),
     url(r'^reflection/', include('reflection.urls', namespace='reflection')),
     url(r'^accounts/', include('accounts.urls')),
     url(r'^accounts/', include('allauth.urls')),
     #url('', include('social_django.urls', namespace='social')),
+
+
+    #IFB399
+    url(r'^assignment399/', include('assignment399.urls', namespace='assignment399')),
+    url(r'^reflection399/', include('reflection399.urls', namespace='reflection399')),
 ]
 
 

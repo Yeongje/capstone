@@ -1,6 +1,6 @@
 
 from django.conf.urls import include, url
-from . import views
+from . import views, views_team
 from django.contrib.auth import views as auth_views
 from django.conf import settings
 
@@ -14,9 +14,10 @@ urlpatterns = [
     url(r'^login/$', views.login, name='login'),
     url(r'^logout/$', auth_views.logout, name='logout', kwargs={'next_page': settings.LOGIN_URL}),
     url(r'^profile/$',views.profile, name ='profile'),
-    url(r'^students/$',views.students, name ='students'),
 
 
+    url(r'^students/$',views_team.students, name ='students'),
+    url(r'^students/teams/(?P<team_number>.+)/$',views_team.teams, name ='teams'),
 
     #url(r'^$', home, name='home'),
     #socialauth

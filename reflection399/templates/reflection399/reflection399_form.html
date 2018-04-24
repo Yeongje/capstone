@@ -1,0 +1,21 @@
+{% load bootstrap3 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-5 col-sm-6 col-lg-4 " >
+
+      <form class="form-horizontal" enctype="multipart/form-data" action="" method="post">
+          <legend>Reflection Form</legend>
+          {% csrf_token %}
+          {% bootstrap_form form %}
+
+          <input type="submit" class="btn btn-primary" name="" value="Submit">
+        </form>
+      </div>
+
+    </div>
+
+  </div>

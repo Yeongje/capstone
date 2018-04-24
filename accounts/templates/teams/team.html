@@ -1,0 +1,38 @@
+{% extends "teams/layout.html"%}
+
+
+{% block content %}
+<div class="container">
+
+<h1>Team - {{team_number}}</h1>
+
+<br>
+
+  <table class="table table-striped">
+      <thead>
+      <tr>
+          <td><B>Name</B></td>
+          <td><B>Student Number</B></td>
+          <td><B>Email</B></td>
+          <td><B>Major</B></td>
+          <td><B>GPA</B></td>
+
+      </tr>
+      </thead>
+      <tbody>
+      {% for profile in profiles %}
+      <tr>
+          <td>{{profile.user}}</td>
+          <td>{{profile.student_number}}</td>
+          <td>{{user.email}}</td>
+          <td>{{profile.major}}</td>
+          <td>{{profile.gpa}}</td>
+      </tr>
+      {% endfor %}
+      <tbody>
+  </table>
+
+</div>
+
+
+{%endblock%}
