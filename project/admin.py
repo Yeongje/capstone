@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post
+from .models import Post, Comment
 from django.utils.safestring import mark_safe
 # Register your models here.
 
@@ -20,3 +20,11 @@ class PostAdmin(admin.ModelAdmin):
         updated_count = queryset.update(status='p') #QuerySet.update
         self.message_user(request, '{} sucessfully marked as published'.format(updated_count))
     make_published.short_description ='change the status of post to published'
+
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    list_display =['id','author','post_content_len']
+    list_select_related = ['post']
+
+    def post_content_len(self,comment):
+        return '{}words'.format(len(comment.post.content))

@@ -1,7 +1,7 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm,UserChangeForm
 from .models import Profile
-
+from django.contrib.auth.models import User
 
 class SignupForm(UserCreationForm):
 
@@ -21,8 +21,14 @@ class SignupForm(UserCreationForm):
             gpa= self.cleaned_data['gpa'])
         return user
 
-#class LoginForm(AuthenticationForm):
-#    answer = forms.IntegerField(label='3+3=?')
-#        if self.cleaned_data.get('answer', None) != 6:
-#            raise forms.ValidationError('wrong')
-#        return answer
+
+class UserForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ('username','email')
+
+
+class ProfileForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ('student_number','team_number','major', 'gpa')

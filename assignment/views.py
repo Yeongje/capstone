@@ -4,6 +4,7 @@ from django.http import Http404, HttpResponseNotFound
 from django.shortcuts import get_object_or_404
 from .forms import AssignmentForm
 from django.views.generic import CreateView,ListView,DetailView,UpdateView, DeleteView
+from django.contrib import messages
 # Create your views here.
 
 def assignment_list(request):

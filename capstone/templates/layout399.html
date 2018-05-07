@@ -42,11 +42,11 @@
                   <li class="active"><a href="{% url "root" %}">Home</a></li>
                   <li><a href="/assignment399/">Assignment</a></li>
                   <li><a href="/reflection399/">Reflection</a></li>
-                  <li><a href="{% url "students" %}">Team</a></li>
+                  <li><a href="{% url "team_navi" %}">Team</a></li>
               </ul>
               <ul class="nav navbar-nav navbar-right">
                   {% if not user.is_authenticated %}
-                    <li><a href="{% url "signup" %}">SingUp</a></li>
+            <!--        <li><a href="{% url "signup" %}">SingUp</a></li> -->
                     <li><a href="{% url "login" %}?next={{ request.path}}">LogIn</a></li>
                   {% else %}
                     <li><a href="{% url "profile" %}">Profile</a></li>

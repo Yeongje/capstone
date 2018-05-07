@@ -1,7 +1,9 @@
-{% load bootstrap3 %}
-{% bootstrap_css %}
-{% bootstrap_javascript %}
+{% extends "project/layout.html" %}
+ {% load bootstrap3 staticfiles %}
+ {% bootstrap_css %}
+ {% bootstrap_javascript %}
 
+ {% block content %}
 <div class="container">
   <div class="row">
     <div class="col-xs-5 col-sm-6 col-lg-4 " >
@@ -16,3 +18,4 @@
     </div>
 
   </div>
+{% endblock %}

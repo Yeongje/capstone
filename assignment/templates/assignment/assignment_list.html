@@ -24,16 +24,7 @@
 
         <div class="row">
             <div class="col-sm-12">
-              <!---
-                <div class="alert alert-info">
-                    <ul>
-                    <li>http://localhost:8000/assignment/ 주소로 접속해보세요.</li>
-                    <li>템플릿 경로를 blog/templates/post_list.html 경로가 아닌
-                    blog/ templates/blog/post_list.html 경로를 쓰는 지에 대한 이유는,
-                    후에 Template Loader에서 설명합니다.</li>
-                    </ul>
-                </div>
-                --->
+
                 <a href="{% url "assignment:assignment_new" %}" class = "btn btn-primary pull-right">New Assignment</a>
 
                 <p>
@@ -54,7 +45,7 @@
                     <tbody>
                         {% for assignment in assignment_list %}
                             <tr>
-                                
+
                                 <td><a href="{% url "assignment:assignment_detail" assignment.id %}">{{ assignment.title }}</a></td>
                                 <td><small>by {{ assignment.user }}</small></td>
                                 <td><small>at {{ assignment.updated_at }}</small></td>

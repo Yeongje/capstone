@@ -1,39 +1,35 @@
-{% load bootstrap3 %} {% bootstrap_css %} {% bootstrap_javascript %}
-{% load socialaccount %}
-
-
+{% extends "accounts/layout.html" %}
+ {% load bootstrap3 staticfiles %}
+ {% bootstrap_css %}
+ {% bootstrap_javascript %}
+ {% load socialaccount %}
+ {% block content %}
 <div class="container">
   <div class="row">
     <div class="col-xs-5 col-sm-6 col-lg-4 ">
-
-
-
+<!--
       <form class="" action="" method="post">
         <legend>Login</legend>
         {% csrf_token %} {% bootstrap_form form %}
 
-
         <input type="submit" class="btn btn-primary" name="" value="Submit">
         <a href="{% url "signup" %}"><input type="button" class="btn btn-primary" value="SignUp"></a>
       </form>
-
+-->
       <h3>Social Login</h3>
-
-
-        {% for provider in providers %}
-            {% if provider.social_app %}
-            <a href="{% provider_login_url provider.id %}"><input type="submit" class="btn btn-primary" name="" value="{{ provider.name }}">
-            </a>
-            {% else %}
-            <a>
+      <br>
+      You should login by using Facebook or Google.
+      <hr>
+      {% for provider in providers %} {% if provider.social_app %}
+      <a href="{% provider_login_url provider.id %}"><input type="submit" class="btn btn-primary" name="" value="{{ provider.name }}">
+            </a> {% else %}
+      <a>
                   Provider {{ provider.name }} Setup
-                </a> {% endif %}
-        {% endfor %}
-
-
+                </a> {% endif %} {% endfor %}
 
     </div>
 
   </div>
 
 </div>
+{% endblock %}

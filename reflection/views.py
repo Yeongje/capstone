@@ -29,15 +29,12 @@ def reflection_new(request):
 
     if request.method=='POST':
         form = ReflectionForm(request.POST,request.FILES)
-
-
         if form.is_valid():
             reflection=form.save()
             messages.success(request,'New reflection was saved')
             return redirect(reflection) #post.get_absoluteurl() => post detail view
     else:
         form=ReflectionForm()
-
     return render(request,'reflection/reflection_form.html', {'form':form})
 
 def reflection_edit(request,id):

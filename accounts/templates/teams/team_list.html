@@ -1,0 +1,54 @@
+{% extends "teams/layout.html"%}
+
+
+{% block content %}
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-sm-12">
+          <h1>Team List</h1>
+          You can make your team by updating your profile in team number
+          <p align="right">
+            <a  href="{% url "update" %}"><input type="button" class="btn btn-primary" value="Choose"></a>
+          </p>
+
+
+            <table  class="table table-hover table-bordered"  method="post">
+              <thead>
+                  <tr>
+                      <th>Team number</th>
+                      <th>Team members</th>
+                      <th>Team members</th>
+                      <th>Team members</th>
+                      <th>Team members</th>
+
+                  </tr>
+              </thead>
+              <tbody>
+
+                    {% for team in team_list.all %}
+                          <tr>
+                              <td>{{ team.number }}</td>
+                              {% for profile in profiles.all%}
+                              {% if team.number is profile.team_number %}
+                              <td><small>{{profile.student_number}}</small></td>
+                              {%else%}
+
+                              {%endif%}
+
+                              {% endfor %}
+                          </tr>
+                    {% endfor %}
+
+
+              </tbody>
+            </table>
+
+        </div>
+    </div>
+
+</div>
+
+
+{% endblock %}

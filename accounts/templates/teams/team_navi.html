@@ -1,0 +1,30 @@
+{% extends "teams/layout.html"%}
+
+
+{% block content %}
+<div class="container">
+    <div class="jumbotron">
+        <h1>Capstone Team</h1>
+
+        <p>
+          <a class="btn btn-lg btn-primary" href="{% url "team_list" %}">
+                      Team List &raquo;
+                  </a>
+          {% for profile in profiles1 %}
+          <a class="btn btn-lg btn-primary" href="http://127.0.0.1:8000/accounts/students/teams/{{profile.team_number}}/">
+                  My Team &raquo;
+                  </a>
+          {% endfor %}
+        </p>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+
+
+</div>
+</div>
+</div>
+
+
+{%endblock%}

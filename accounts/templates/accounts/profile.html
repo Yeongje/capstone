@@ -27,7 +27,7 @@
     </tr>
     <tr>
       <th>Student Number</th>
-      <td>{{profile.student_number}}</td>
+      <td>{{user.profile.student_number}}</td>
     </tr>
     <tr>
       <th>Student Email</th>
@@ -35,11 +35,12 @@
     </tr>
     <tr>
       <th>Team Number</th>
-      <td>{{profile.team_number}}</td>
+      <td><a  href="http://127.0.0.1:8000/accounts/students/teams/{{profile.team_number}}/">{{user.profile.team_number}}</a></td>
+
     </tr>
 
     {% endfor %}
   </table>
-
+  <a  href="{% url "update" %}"><input type="button" class="btn btn-primary" value="Update Profile"></a>
 </ul>
 {%endblock%}

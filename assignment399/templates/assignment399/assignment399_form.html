@@ -1,7 +1,9 @@
+{% extends "assignment399/layout399.html" %}
+ {% load bootstrap3 staticfiles %}
+ {% bootstrap_css %}
+ {% bootstrap_javascript %}
 
-{% load bootstrap3 %}
-{% bootstrap_css %}
-{% bootstrap_javascript %}
+ {% block content %}
 
 <div class="container">
   <div class="row">
@@ -15,3 +17,5 @@
         </div>
     </div>
 </div>
+
+{% endblock %}
