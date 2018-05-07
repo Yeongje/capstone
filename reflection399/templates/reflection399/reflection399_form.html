@@ -1,13 +1,15 @@
-{% load bootstrap3 %}
-{% bootstrap_css %}
-{% bootstrap_javascript %}
+{% extends "reflection399/layout399.html" %}
+ {% load bootstrap3 staticfiles %}
+ {% bootstrap_css %}
+ {% bootstrap_javascript %}
 
+ {% block content %}
 
 <div class="container">
   <div class="row">
     <div class="col-xs-5 col-sm-6 col-lg-4 " >
 
-      <form class="form-horizontal" enctype="multipart/form-data" action="" method="post">
+      <form class="" action="" method="post">
           <legend>Reflection Form</legend>
           {% csrf_token %}
           {% bootstrap_form form %}
@@ -19,3 +21,5 @@
     </div>
 
   </div>
+
+{% endblock %}
