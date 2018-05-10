@@ -22,6 +22,7 @@ urlpatterns = [
     url(r'^students/teams/(?P<team_number>.+)/$',views_team.teams, name ='teams'),
 
     url(r'^teams/list/$', views_team.team_list, name = 'team_list'),
+    url(r'^update$', views_team.update_team, name = 'update_team'),
 
     #url(r'^$', home, name='home'),
     #socialauth

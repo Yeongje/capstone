@@ -1,10 +1,25 @@
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render,get_object_or_404
-from .forms import SignupForm
+from .forms import SignupForm,TeamForm
 from .models import Profile, Team
 from django.contrib.auth.models import User
 from django.urls import reverse
+
+@login_required
+def update_team(request):
+    if request.method == 'POST':
+        team_form = TeamForm(request.POST, request.FILES, instance=request.user.profile)
+
+        if team_form.is_valid():
+            team_form.save()
+            return redirect(team_list)
+
+    else:
+        team_form = TeamForm(instance=request.user.profile)
+    return render(request, 'teams/team_update.html', {
+        'team_form': team_form,
+    })
 
 
 @login_required

@@ -32,3 +32,8 @@ class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ('student_number','team_number','major', 'gpa')
+
+class TeamForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ('student_number','team_number')
